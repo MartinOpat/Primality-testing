@@ -1,4 +1,4 @@
-#include <iostream>
+#include "trial.hpp"
 
 using lll = __int128;
 
@@ -7,20 +7,12 @@ using lll = __int128;
 // returns the factors of n. However, since we only care about whether n is a
 // prime and not its factors, the below implementation is a slightly more
 // efficient version.
-bool trial_division(lll n) {
+
+bool TrialDivision::isPrime(lll n) {
+
   for (lll i = 1; i * i <= n; ++i) {
     if (!(n % i))
       return false;
   }
   return true;
-}
-
-// TODO: Make a unified main for all tests that does the timing
-int main() {
-  __int128 a = 0;
-  const char *num = "3317044064679887385961981";
-  for (int i = 0; num[i]; i++)
-    a = a * 10 + (num[i] - '0');
-
-  std::cout << trial_division(a) << std::endl;
 }
