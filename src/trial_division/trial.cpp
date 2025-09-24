@@ -15,6 +15,7 @@ bool trial_division(lll n) {
   return true;
 }
 
+// TODO: Make a unified main for all tests that does the timing
 int main() {
   __int128 a = 0;
   const char *num = "3317044064679887385961981";
