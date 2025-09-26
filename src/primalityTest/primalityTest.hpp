@@ -1,3 +1,4 @@
+#pragma once
 
 // An abstract parent class for all primality tests
 

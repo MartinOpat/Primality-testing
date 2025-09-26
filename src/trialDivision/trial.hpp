@@ -1,3 +1,5 @@
+#pragma once
+
 #include "primalityTest/primalityTest.hpp"
 
 // TODO: Link stuff using cmake
