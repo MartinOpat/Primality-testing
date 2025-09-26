@@ -3,6 +3,7 @@
 // TODO: Link stuff using cmake
 
 class TrialDivision : PrimalityTest {
+public:
   TrialDivision() = default;
   ~TrialDivision() = default;
 
