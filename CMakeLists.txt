@@ -1,0 +1,24 @@
+cmake_minimum_required(VERSION 3.10)
+
+# Project name
+project(PrimalityTesting)
+
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# Add source files
+set(SOURCES
+    src/main.cpp
+    src/trialDivision/trial.cpp
+)
+
+# Include directories
+include_directories(
+    src
+    src/primalityTest
+    src/trialDivision
+)
+
+# Add executable
+add_executable(PrimalityTesting ${SOURCES})

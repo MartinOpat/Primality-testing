@@ -4,7 +4,7 @@
 
 // TODO: Link stuff using cmake
 
-class TrialDivision : PrimalityTest {
+class TrialDivision : public PrimalityTest {
 public:
   TrialDivision() = default;
   ~TrialDivision() = default;
