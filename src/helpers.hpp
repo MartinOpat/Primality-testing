@@ -1,5 +1,7 @@
 #pragma once 
 
+#include <iostream>
+
 using lll = __int128;
 
 __int128 strToInt(const char *num) {
@@ -9,14 +11,14 @@ __int128 strToInt(const char *num) {
   return a;
 }
 
-ostream &operator<<(ostream &o, __int128 n) {
+std::ostream &operator<<(std::ostream &o, __int128 n) {
   auto t = n < 0 ? -n : n;
-  char b[128], *d = end(b);
+  char b[128], *d = std::end(b);
   do
     *--d = '0' + t % 10, t /= 10;
   while (t);
   if (n < 0)
     *--d = '-';
-  o.rdbuf()->sputn(d, end(b) - d);
+  o.rdbuf()->sputn(d, std::end(b) - d);
   return o;
 }
