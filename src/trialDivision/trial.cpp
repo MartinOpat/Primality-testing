@@ -8,8 +8,7 @@ using lll = __int128;
 // prime and not its factors, the below implementation is a slightly more
 // efficient version.
 
-bool TrialDivision::isPrime(lll n) {
-
+bool TrialDivision::isPrime(__int128 n) {
   for (lll i = 1; i * i <= n; ++i) {
     if (!(n % i))
       return false;
