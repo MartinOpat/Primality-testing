@@ -23,7 +23,7 @@ int main() {
 
 
   for (lll i = 0; i < a; i++) {
-    std::cout << i << "is a prime?\n";
+    std::cout << i << "is a prime?";
     std::cout << "Trial division says: " << (pt->isPrime(i) ? "yes" : "no") << std::endl;
   }
 

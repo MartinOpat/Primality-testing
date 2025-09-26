@@ -9,7 +9,8 @@ using lll = __int128;
 // efficient version.
 
 bool TrialDivision::isPrime(__int128 n) {
-  for (lll i = 1; i * i <= n; ++i) {
+  if (n <= 1) return 0;
+  for (lll i = 2; i * i <= n; ++i) {
     if (!(n % i))
       return false;
   }
