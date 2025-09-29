@@ -4,14 +4,14 @@
 
 using lll = __int128;
 
-__int128 strToInt(const char *num) {
+inline __int128 strToInt(const char *num) {
   __int128 a = 0;
   for (int i = 0; num[i]; i++)
     a = a * 10 + (num[i] - '0');
   return a;
 }
 
-std::ostream &operator<<(std::ostream &o, __int128 n) {
+inline std::ostream &operator<<(std::ostream &o, __int128 n) {
   auto t = n < 0 ? -n : n;
   char b[128], *d = std::end(b);
   do
@@ -23,7 +23,7 @@ std::ostream &operator<<(std::ostream &o, __int128 n) {
   return o;
 }
 
-lll mod_pow(lll base, lll exp, lll mod) {
+inline lll mod_pow(lll base, lll exp, lll mod) {
   if (mod == 1)
     return 0;
   if (exp == 0)
