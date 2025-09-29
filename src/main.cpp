@@ -16,16 +16,18 @@ int main() {
   const char *maxIntStr = "340000000000000000000000000000000000000";
   lll maxInt = strToInt(maxIntStr);
 
-  const char *aStr = "34";
+  const char *aStr = "1000000";
   lll a = strToInt(aStr);
 
 
-
-
+  auto start = std::chrono::high_resolution_clock::now();
   for (lll i = 0; i < a; i++) {
-    std::cout << i << "is a prime?";
-    std::cout << "Trial division says: " << (pt->isPrime(i) ? "yes" : "no") << std::endl;
+    std::cout << i << " is a prime?";
+    std::cout << " Trial division says: " << (pt->isPrime(i) ? "yes" : "no") << std::endl;
   }
+  auto end = std::chrono::high_resolution_clock::now();
+  std::chrono::duration<double> elapsed = end - start;
+  std::cout << "Time ellapsed: " << elapsed.count() << "s" << std::endl; 
 
   delete pt;
 
