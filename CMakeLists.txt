@@ -18,9 +18,6 @@ set(SOURCES
 # Include directories
 include_directories(
     src
-    src/primalityTest
-    src/trialDivision
-    src/millerRabin
 )
 
 # Add executable
