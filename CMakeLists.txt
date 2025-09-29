@@ -12,6 +12,7 @@ SET(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(SOURCES
     src/main.cpp
     src/trialDivision/trial.cpp
+    src/millerRabin/millerRabin.cpp
 )
 
 # Include directories
@@ -19,6 +20,7 @@ include_directories(
     src
     src/primalityTest
     src/trialDivision
+    src/millerRabin
 )
 
 # Add executable
