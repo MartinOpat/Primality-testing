@@ -1,4 +1,4 @@
-#pragma once 
+#pragma once
 
 #include <iostream>
 
@@ -21,4 +21,24 @@ std::ostream &operator<<(std::ostream &o, __int128 n) {
     *--d = '-';
   o.rdbuf()->sputn(d, std::end(b) - d);
   return o;
+}
+
+lll mod_pow(lll base, lll exp, lll mod) {
+  if (mod == 1)
+    return 0;
+  if (exp == 0)
+    return 1;
+  if (exp == 1)
+    return base;
+
+  lll res = 1;
+  base %= mod;
+  while (exp) {
+    if (exp % 2 == 1)
+      res = (res * base) % mod;
+    exp >>= 1;
+    base = (base * base) % mod;
+  }
+
+  return res % mod;
 }
