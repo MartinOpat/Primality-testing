@@ -10,10 +10,19 @@ fi
 
 declare -a tests=(0 1 2)
 
-echo "test" >test.txt
+# Create file name for the given test
+BASE_LOGFILE="bench.txt"
+counter=0
+LOGFILE="${BASE_LOGFILE%.txt}$counter.txt"
+while [[ -f $LOGFILE ]]; do
+  let counter+=1
+  LOGFILE="${BASE_LOGFILE%.txt}$counter.txt"
+done
+echo "Logging to $LOGFILE"
+
 for i in "${tests[@]}"; do
   # run the program, save its PID, redirect its output into tee
-  ./PrimalityTesting "$i" > >(tee -a test.txt) 2>&1 &
+  ./PrimalityTesting "$i" > >(tee -a $LOGFILE) 2>&1 &
   pid=$!
 
   sleep 3
