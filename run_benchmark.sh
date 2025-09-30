@@ -20,16 +20,19 @@ while [[ -f $LOGFILE ]]; do
 done
 echo "Logging to $LOGFILE"
 
+reps=10
 for i in "${tests[@]}"; do
-  # run the program, save its PID, redirect its output into tee
-  ./PrimalityTesting "$i" > >(tee -a $LOGFILE) 2>&1 &
-  pid=$!
+  for j in {1..$reps}; do
+    # run the program, save its PID, redirect its output into tee
+    ./PrimalityTesting "$i" > >(tee -a $LOGFILE) 2>&1 &
+    pid=$!
 
-  sleep 3
+    sleep 3
 
-  if kill -0 "$pid" 2>/dev/null; then
-    kill -SIGINT "$pid"
-  fi
+    if kill -0 "$pid" 2>/dev/null; then
+      kill -SIGINT "$pid"
+    fi
 
-  wait "$pid" 2>/dev/null
+    wait "$pid" 2>/dev/null
+  done
 done
