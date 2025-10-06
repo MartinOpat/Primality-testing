@@ -27,7 +27,7 @@ for i in "${tests[@]}"; do
     ./PrimalityTesting "$i" > >(tee -a $LOGFILE) 2>&1 &
     pid=$!
 
-    sleep 3
+    sleep 10
 
     if kill -0 "$pid" 2>/dev/null; then
       kill -SIGINT "$pid"
