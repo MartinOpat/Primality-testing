@@ -22,7 +22,7 @@ echo "Logging to $LOGFILE"
 
 reps=10
 for i in "${tests[@]}"; do
-  for j in {1..$reps}; do
+  for j in $(seq 1 $reps); do
     # run the program, save its PID, redirect its output into tee
     ./PrimalityTesting "$i" > >(tee -a $LOGFILE) 2>&1 &
     pid=$!
