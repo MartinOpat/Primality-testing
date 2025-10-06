@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 
+#include "bailliePsw/bailliePsw.hpp"
 #include "millerRabin/millerRabin.hpp"
 #include "primalityTest/primalityTest.hpp"
 #include "trialDivision/trial.hpp"
@@ -42,8 +43,9 @@ int main(int argc, char *argv[]) {
     pt = new MillerRabin();
     break;
   case 2:
-    std::cout << "This is not implemented yet, stopping...\n";
-    return 0;
+    pt = new BailliePSW();
+    std::cout << "Picked BailliePSW\n";
+    break;
   default:
     std::cout << "Invalid algorithm pick, stopping...\n";
     return 0;
@@ -56,12 +58,12 @@ int main(int argc, char *argv[]) {
   std::cout << maxInt << std::endl;
 
   // const char *aStr = "100000000";
-  // const char *aStr = "34";
-  // lll a = strToInt(aStr);
+  // const char *aStr = "200";
 
   start = std::chrono::high_resolution_clock::now();
   for (i = 0; i < maxInt; ++i) {
     pt->isPrime(i);
+    // std::cout << "Is " << i << " a prime? " << pt->isPrime(i) << std::endl;
   }
 
   std::chrono::duration<double> elapsed = end - start;

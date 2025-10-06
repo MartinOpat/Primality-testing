@@ -13,6 +13,7 @@ set(SOURCES
     src/main.cpp
     src/trialDivision/trial.cpp
     src/millerRabin/millerRabin.cpp
+    src/bailliePsw/bailliePsw.cpp
 )
 
 # Include directories
