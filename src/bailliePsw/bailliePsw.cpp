@@ -61,7 +61,8 @@ bool isPerfectSquare(lll n) {
 }
 
 lll jacobi(lll a, lll n) {
-  a %= n;
+  a = (a+n) % n;
+  if (a < 0) a += n;
   lll result = 1;
 
   while (a != 0) {
@@ -73,7 +74,7 @@ lll jacobi(lll a, lll n) {
     std::swap(a, n);
     if (a % 4 == 3 && n % 4 == 3)
       result = -result;
-    a %= n;
+    a = (a+n) % n;
   }
 
   if (n == 1)
