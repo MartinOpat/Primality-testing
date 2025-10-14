@@ -1,0 +1,150 @@
+Algorithm picked: 0
+Picked Trial Division
+34000000000000000
+Reached: 17952509
+Duration: 9.9988 s
+Algorithm picked: 0
+Picked Trial Division
+34000000000000000
+Reached: 17352989
+Duration: 9.99974 s
+Algorithm picked: 0
+Picked Trial Division
+34000000000000000
+Reached: 17601379
+Duration: 9.99972 s
+Algorithm picked: 0
+Picked Trial Division
+34000000000000000
+Reached: 17748953
+Duration: 9.99969 s
+Algorithm picked: 0
+Picked Trial Division
+34000000000000000
+Reached: 17790767
+Duration: 9.99965 s
+Algorithm picked: 0
+Picked Trial Division
+34000000000000000
+Reached: 17616817
+Duration: 9.99982 s
+Algorithm picked: 0
+Picked Trial Division
+34000000000000000
+Reached: 17828663
+Duration: 9.99986 s
+Algorithm picked: 0
+Picked Trial Division
+34000000000000000
+Reached: 18284437
+Duration: 9.99967 s
+Algorithm picked: 0
+Picked Trial Division
+34000000000000000
+Reached: 18168149
+Duration: 9.99988 s
+Algorithm picked: 0
+Picked Trial Division
+34000000000000000
+Reached: 18383543
+Duration: 9.99978 s
+Algorithm picked: 1
+Picked Miller Rabin
+34000000000000000
+Reached: 19920919
+Duration: 9.9995 s
+Algorithm picked: 1
+Picked Miller Rabin
+34000000000000000
+Reached: 19474769
+Duration: 9.99953 s
+Algorithm picked: 1
+Picked Miller Rabin
+34000000000000000
+Reached: 20356877
+Duration: 9.99956 s
+Algorithm picked: 1
+Picked Miller Rabin
+34000000000000000
+Reached: 19500451
+Duration: 9.99959 s
+Algorithm picked: 1
+Picked Miller Rabin
+34000000000000000
+Reached: 20174613
+Duration: 9.99962 s
+Algorithm picked: 1
+Picked Miller Rabin
+34000000000000000
+Reached: 19472357
+Duration: 9.99976 s
+Algorithm picked: 1
+Picked Miller Rabin
+34000000000000000
+Reached: 20242963
+Duration: 9.99973 s
+Algorithm picked: 1
+Picked Miller Rabin
+34000000000000000
+Reached: 20242987
+Duration: 9.99957 s
+Algorithm picked: 1
+Picked Miller Rabin
+34000000000000000
+Reached: 20240021
+Duration: 9.99967 s
+Algorithm picked: 1
+Picked Miller Rabin
+34000000000000000
+Reached: 20248921
+Duration: 9.99985 s
+Algorithm picked: 2
+Picked BailliePSW
+34000000000000000
+Reached: 19025077
+Duration: 9.99971 s
+Algorithm picked: 2
+Picked BailliePSW
+34000000000000000
+Reached: 19473427
+Duration: 9.99962 s
+Algorithm picked: 2
+Picked BailliePSW
+34000000000000000
+Reached: 19804871
+Duration: 9.99967 s
+Algorithm picked: 2
+Picked BailliePSW
+34000000000000000
+Reached: 19137557
+Duration: 9.99982 s
+Algorithm picked: 2
+Picked BailliePSW
+34000000000000000
+Reached: 19872703
+Duration: 9.99973 s
+Algorithm picked: 2
+Picked BailliePSW
+34000000000000000
+Reached: 19315957
+Duration: 9.99984 s
+Algorithm picked: 2
+Picked BailliePSW
+34000000000000000
+Reached: 19665271
+Duration: 9.99955 s
+Algorithm picked: 2
+Picked BailliePSW
+34000000000000000
+Reached: 19549279
+Duration: 9.99956 s
+Algorithm picked: 2
+Picked BailliePSW
+34000000000000000
+Reached: 19709857
+Duration: 9.9997 s
+Algorithm picked: 2
+Picked BailliePSW
+34000000000000000
+Reached: 19598609
+Duration: 9.99999 s

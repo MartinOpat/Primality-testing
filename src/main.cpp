@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
   }
 
   const char *maxIntStr =
-      "34000000000000000"; // NOTE:Not the actual __128 limit, rather the limit
+      "20000000"; // NOTE:Not the actual __128 limit, rather the limit
                            // of how big ints we want to test
   lll maxInt = strToInt(maxIntStr);
   std::cout << maxInt << std::endl;
@@ -60,17 +60,23 @@ int main(int argc, char *argv[]) {
   // const char *aStr = "100000000";
   // const char *aStr = "200";
 
+  int reps = 10;
+  int wsize = 10000;   // Every time measurements includes `wsize`-many ints
+  
   start = std::chrono::high_resolution_clock::now();
   for (i = 0; i < maxInt; ++i) {
-    pt->isPrime(i);
-    // std::cout << "Is " << i << " a prime? " << pt->isPrime(i) << std::endl;
-  }
+    for (int r = 0; r < reps; ++r) {
+      pt->isPrime(i);
+    }
 
-  std::chrono::duration<double> elapsed = end - start;
-  std::cout << "Time ellapsed: " << elapsed.count() << "s" << std::endl;
-  std::cout << "Warning: Code exited before being killed, consider increasing "
-               "max tested integer limit!"
-            << std::endl;
+    if (i % wsize == 0) {
+      end = std::chrono::high_resolution_clock::now();
+      std::chrono::duration<double> elapsed = end - start;
+      double tavg = elapsed.count() / reps;
+      std::cout << "Time elapsed: " << tavg  << "s" << std::endl;
+      start = std::chrono::high_resolution_clock::now();
+    }
+  }
 
   delete pt;
 
