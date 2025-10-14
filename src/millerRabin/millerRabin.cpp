@@ -3,11 +3,6 @@
 #include "helpers.hpp"
 #include <cstdlib>
 
-// Upper is exclusive, lower is inclusive. TODO: Move to `helpers.hpp`
-lll bounded_rand(lll lower, lll upper) {
-  return std::rand() % (upper - lower) + lower;
-}
-
 bool MillerRabin::isPrime(__int128 n) {
   if (n <= 1)
     return false;

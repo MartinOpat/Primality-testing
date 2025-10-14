@@ -61,7 +61,7 @@ bool isPerfectSquare(lll n) {
 }
 
 lll jacobi(lll a, lll n) {
-  a %= n;
+  a = (a+n) % n;
   lll result = 1;
 
   while (a != 0) {
@@ -73,7 +73,7 @@ lll jacobi(lll a, lll n) {
     std::swap(a, n);
     if (a % 4 == 3 && n % 4 == 3)
       result = -result;
-    a %= n;
+    a = (a + n) % n;
   }
 
   if (n == 1)
@@ -106,7 +106,7 @@ bool BailliePSW::isPrime(__int128 n) {
   if (n <= 1)
     return false;
   if (!(n & 1)) // even
-    return false;
+    return n==2;
 
   // Test small primes "manually"
   lll ps[] = {2,  3,  5,  7,  11, 13, 17, 19, 23, 29, 31, 37, 41,

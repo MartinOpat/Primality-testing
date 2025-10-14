@@ -2,6 +2,7 @@
 #include <csignal>
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "bailliePsw/bailliePsw.hpp"
 #include "millerRabin/millerRabin.hpp"
@@ -13,72 +14,71 @@
 // Global variables for efficient (async) info. logging
 lll i = 0;
 std::chrono::time_point<std::chrono::high_resolution_clock> start, end;
-PrimalityTest *pt = nullptr;
+PrimalityTest *pt1 = nullptr;
+PrimalityTest *pt2 = nullptr;
+PrimalityTest *pt3 = nullptr;
 
-void signal_handler(int signal) {
-  end = std::chrono::high_resolution_clock::now();
-  std::chrono::duration<double> elapsed = end - start;
-  std::cout << "Reached: " << i << std::endl;
-  std::cout << "Duration: " << elapsed.count() << " s" << std::endl;
-  delete pt;
-  std::exit(0);
-}
 
 // TODO: Make a unified main for all tests that does the timing
 int main(int argc, char *argv[]) {
-  std::signal(SIGINT, signal_handler);
 
-  std::string algPickStr = argv[1];
-  int algPick = std::stoi(algPickStr);
-
-  std::cout << "Algorithm picked: " << algPick << std::endl;
-
-  switch (algPick) {
-  case 0:
-    std::cout << "Picked Trial Division\n";
-    pt = new TrialDivision();
-    break;
-  case 1:
-    std::cout << "Picked Miller Rabin\n";
-    pt = new MillerRabin();
-    break;
-  case 2:
-    pt = new BailliePSW();
-    std::cout << "Picked BailliePSW\n";
-    break;
-  default:
-    std::cout << "Invalid algorithm pick, stopping...\n";
-    return 0;
-  }
+  pt1 = new TrialDivision();
+  pt2 = new MillerRabin(1);
+  pt3 = new BailliePSW();
 
   const char *maxIntStr =
-      "20000000"; // NOTE:Not the actual __128 limit, rather the limit
+      "2000000000000000000000000000000000"; // NOTE:Not the actual __128 limit, rather the limit
                            // of how big ints we want to test
   lll maxInt = strToInt(maxIntStr);
   std::cout << maxInt << std::endl;
 
   // const char *aStr = "100000000";
-  // const char *aStr = "200";
+  const char *aStr = "1";
+  lll a = strToInt(aStr);
 
-  int reps = 10;
-  int wsize = 10000;   // Every time measurements includes `wsize`-many ints
+  std::vector<lll> mr_wrong;
+  std::vector<lll> pse_wrong;
   
+  bool gt, mr, pse;
   start = std::chrono::high_resolution_clock::now();
-  for (i = 0; i < maxInt; ++i) {
-    for (int r = 0; r < reps; ++r) {
-      pt->isPrime(i);
+  // for (i = maxInt; i < a; ++i) {
+  int c = 10000000;
+  while (c>0) {
+
+    i = bounded_rand(a, maxInt);
+  
+    gt = pt1->isPrime(i);
+    mr = pt2->isPrime(i);
+    pse = pt3->isPrime(i);
+
+    if (mr != gt) {
+      mr_wrong.push_back(i);
+      std::cout << i << std::endl;
     }
 
-    if (i % wsize == 0) {
-      end = std::chrono::high_resolution_clock::now();
-      std::chrono::duration<double> elapsed = end - start;
-      double tavg = elapsed.count() / reps;
-      std::cout << "Time elapsed: " << tavg  << "s" << std::endl;
-      start = std::chrono::high_resolution_clock::now();
+
+    if (pse != gt) {
+      pse_wrong.push_back(i);
+      std::cout << i << std::endl;
     }
+
+    --c;
   }
 
-  delete pt;
+  std::cout << "mr: " << mr_wrong.size() << std::endl;
+  std::cout << "pse: " << pse_wrong.size() << std::endl;
+  // for(auto&x:mr_wrong)
+  //   std::cout << x << " ";
+  // std::cout << std::endl;
+
+  // for(auto&x:pse_wrong)
+  //   std::cout << x << " ";
+  // std::cout << std::endl;
+
+
+  delete pt1;
+  delete pt2;
+  delete pt3;
 
   return 0;
 }

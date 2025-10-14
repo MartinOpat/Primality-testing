@@ -42,3 +42,9 @@ inline lll mod_pow(lll base, lll exp, lll mod) {
 
   return res % mod;
 }
+
+
+// Upper is exclusive, lower is inclusive. TODO: Move to `helpers.hpp`
+inline lll bounded_rand(lll lower, lll upper) {
+  return std::rand() % (upper - lower) + lower;
+}
