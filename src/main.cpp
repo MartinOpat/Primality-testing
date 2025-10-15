@@ -23,29 +23,42 @@ PrimalityTest *pt3 = nullptr;
 int main(int argc, char *argv[]) {
 
   pt1 = new TrialDivision();
-  pt2 = new MillerRabin(1);
+  pt2 = new MillerRabin();
   pt3 = new BailliePSW();
 
   const char *maxIntStr =
-      "2000000000000000000000000000000000"; // NOTE:Not the actual __128 limit, rather the limit
-                           // of how big ints we want to test
+      "13000000000000000000"; // NOTE:Not the actual __128 limit, rather the limit
+                           // of how big ints we want to test ...rather sqrt(__128)
   lll maxInt = strToInt(maxIntStr);
-  std::cout << maxInt << std::endl;
-
+  
   // const char *aStr = "100000000";
-  const char *aStr = "1";
+  // const char *aStr = "200000000000000000000";  // > 2^64
+  const char *aStr = "1";  // > 2^64
   lll a = strToInt(aStr);
-
+  std::cout << "Testing range: " << a << " - " << maxInt << std::endl;
+  
   std::vector<lll> mr_wrong;
   std::vector<lll> pse_wrong;
+
+  const char *tStr = "12451237685321571221";  // > 2^64
+  std::cout << "Testing: " << "12451237685321571221" << std::endl;
+  lll t = strToInt(tStr);
+  if (pt3->isPrime(t))
+    std::cout << "Success" << std::endl;
+  else
+    std::cout << "Fail" << std::endl;
   
   bool gt, mr, pse;
   start = std::chrono::high_resolution_clock::now();
-  // for (i = maxInt; i < a; ++i) {
-  int c = 10000000;
-  while (c>0) {
+
+  int c = 0;
+  int cmax = 1000;
+  std::cout << "Testing " << c << " random numbers" << std::endl;
+  int perc = 0;
+  while (c < cmax) {
 
     i = bounded_rand(a, maxInt);
+    // std::cout << i << std::endl;
   
     gt = pt1->isPrime(i);
     mr = pt2->isPrime(i);
@@ -53,16 +66,21 @@ int main(int argc, char *argv[]) {
 
     if (mr != gt) {
       mr_wrong.push_back(i);
-      std::cout << i << std::endl;
+      std::cout << "mr: " << i << std::endl;
     }
 
 
     if (pse != gt) {
       pse_wrong.push_back(i);
-      std::cout << i << std::endl;
+      std::cout << "bsw: " << i << std::endl;
     }
 
-    --c;
+    ++c;
+
+    if (100 * (c % (cmax / 100)) == 0) {
+      ++perc;
+      std::cout << perc << "% " << std::endl;
+    }
   }
 
   std::cout << "mr: " << mr_wrong.size() << std::endl;
