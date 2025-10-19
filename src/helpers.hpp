@@ -1,5 +1,6 @@
 #pragma once
 
+#include <random>
 #include <iostream>
 
 using lll = __int128;
@@ -40,5 +41,35 @@ inline lll mod_pow(lll base, lll exp, lll mod) {
     base = (base * base) % mod;
   }
 
-  return res % mod;
+  return (res + mod) % mod;
+}
+
+
+// // Upper is exclusive, lower is inclusive. TODO: Move to `helpers.hpp`
+// inline lll bounded_rand(lll lower, lll upper) {
+//   return std::rand() % (upper - lower) + lower;
+// }
+
+inline __uint128_t rand_u128() {
+  static thread_local std::mt19937_64 rng(std::random_device{}());
+  __uint128_t hi = static_cast<__uint128_t>(rng());
+  __uint128_t lo = static_cast<__uint128_t>(rng());
+  return (hi << 64) | lo;
+}
+
+// [lower, upper)
+inline lll bounded_rand(lll lower, lll upper) {
+  if (!(upper > lower)) return lower; // or assert
+  __uint128_t span = static_cast<__uint128_t>(upper - lower);
+
+  const __uint128_t max = ~static_cast<__uint128_t>(0);       // UINT128_MAX
+  const __uint128_t limit = max - (max % span);               // rejection limit
+
+  __uint128_t r;
+  do {
+    r = rand_u128();
+  } while (r >= limit);
+
+  return static_cast<lll>(static_cast<__int128>(lower) +
+                          static_cast<__int128>(r % span));
 }
