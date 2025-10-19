@@ -17,38 +17,25 @@ static inline lll norm_mod(lll x, lll m) {
 
 // (a + b) mod m
 static inline lll addmod(lll a, lll b, lll m) {
-  a = norm_mod(a, m);
-  b = norm_mod(b, m);
   lll s = a + b;
-  if (s >= m)
-    s -= m; // since a,b < m, s < 2m
+  if (s >= m) s -= m;
   return s;
 }
 
 // (a * b) mod m
 static inline lll mulmod(lll a, lll b, lll m) {
-  a = norm_mod(a, m);
-  b = norm_mod(b, m);
-  lll res = 0;
-  while (b) {
-    if (b & 1) {
-      res += a;
-      if (res >= m)
-        res -= m;
-    }
-    b >>= 1;
-    a <<= 1;
-    if (a >= m)
-      a -= m;
-  }
-  return res;
+  a %= m; if (a < 0) a += m;
+  b %= m; if (b < 0) b += m;
+  __int128 t = a * b;
+  t %= m;
+  if (t < 0) t += m;
+  return t;
 }
 
 lll modTwoInv(lll x, lll m) {
-  x = norm_mod(x, m);
-  if (x & 1)
-    x += m;
-  return (x >> 1) % m;
+  x %= m; if (x < 0) x += m;
+  if (x & 1) x += m;
+  return x >> 1;
 }
 
 std::pair<lll, lll> uv(lll k, lll n, lll p, lll d) {
