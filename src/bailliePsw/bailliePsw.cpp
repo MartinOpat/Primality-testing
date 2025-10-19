@@ -1,42 +1,91 @@
 
 #include "bailliePsw.hpp"
 #include "helpers.hpp"
+#include <algorithm>
 #include <bitset>
 #include <cassert>
 #include <cmath>
 #include <utility>
 
-lll modTwoInv(lll n, lll m) {
-  // n div 2 (mod m)
-  if (n & 1)
-    return ((n + m) >> 1) % m;
-  else
-    return (n >> 1) % m;
+// normalize into [0, m)
+static inline lll norm_mod(lll x, lll m) {
+  x %= m;
+  if (x < 0)
+    x += m;
+  return x;
+}
+
+// (a + b) mod m
+static inline lll addmod(lll a, lll b, lll m) {
+  a = norm_mod(a, m);
+  b = norm_mod(b, m);
+  lll s = a + b;
+  if (s >= m)
+    s -= m; // since a,b < m, s < 2m
+  return s;
+}
+
+// (a * b) mod m
+static inline lll mulmod(lll a, lll b, lll m) {
+  a = norm_mod(a, m);
+  b = norm_mod(b, m);
+  lll res = 0;
+  while (b) {
+    if (b & 1) {
+      res += a;
+      if (res >= m)
+        res -= m;
+    }
+    b >>= 1;
+    a <<= 1;
+    if (a >= m)
+      a -= m;
+  }
+  return res;
+}
+
+lll modTwoInv(lll x, lll m) {
+  x = norm_mod(x, m);
+  if (x & 1)
+    x += m;
+  return (x >> 1) % m;
 }
 
 std::pair<lll, lll> uv(lll k, lll n, lll p, lll d) {
-  lll u = 1, v = p;
-  std::string bin = std::bitset<128>(k).to_string();
+  lll u = 1, v = norm_mod(p, n);
 
-  lll temp;
+  // build binary of k without bitset
+  std::string bin;
+  for (lll t =k; t; t >>= 1)
+    bin.push_back((t & 1) ? '1' : '0');
+  std::reverse(bin.begin(), bin.end());
+
   bool trail = true;
-  for (auto &c : bin) {
+  for (char c : bin) {
     if (trail && c == '0')
       continue;
     if (trail) {
-      // Skip the first non-zero digit
+      // skip first 1
       trail = false;
       continue;
     }
 
-    temp = u;
-    u = (u * v) % n;
-    v = modTwoInv(v * v + d * temp * temp, n);
+    lll temp = u;
+    u = mulmod(u, v, n);
+
+    lll vv = mulmod(v, v, n);
+    lll tt = mulmod(temp, temp, n);
+    lll dtt = mulmod(d, tt, n);
+    v = modTwoInv(addmod(vv, dtt, n), n);
 
     if (c == '1') {
       temp = u;
-      u = modTwoInv(p * u + v, n);
-      v = modTwoInv(d * temp + p * v, n);
+      lll pu = mulmod(p, u, n);
+      u = modTwoInv(addmod(pu, v, n), n);
+
+      lll dt = mulmod(d, temp, n);
+      lll pv = mulmod(p, v, n);
+      v = modTwoInv(addmod(dt, pv, n), n);
     }
   }
   return std::make_pair(u, v);
@@ -50,18 +99,26 @@ bool lucas_helper(lll n, lll d, lll p, lll q) {
 bool lucas(lll n, lll d) { return lucas_helper(n, d, 1, (1 - d) / 4); }
 
 bool isPerfectSquare(lll n) {
-  lll guess = std::sqrt(n);
-  lll r = std::floor(guess);
-  if (r * r == n)
-    return true;
-  else {
-    r = std::ceil(guess);
-    return r * r == n;
+  if (n <= 0)
+    return n == 0;
+
+  lll x = 1, y = n, m;
+  while (x + 1 < y) {
+    m = x + (y - x) / 2;
+    if (m * m < n) {
+      x = m;
+    } else {
+      y = m;
+    }
   }
+  return n == x * x || n == (x + 1) * (x + 1);
 }
 
 lll jacobi(lll a, lll n) {
   a %= n;
+  a += n;
+  a %= n;
+
   lll result = 1;
 
   while (a != 0) {
@@ -73,6 +130,8 @@ lll jacobi(lll a, lll n) {
     std::swap(a, n);
     if (a % 4 == 3 && n % 4 == 3)
       result = -result;
+    a %= n;
+    a += n;
     a %= n;
   }
 
@@ -106,7 +165,7 @@ bool BailliePSW::isPrime(__int128 n) {
   if (n <= 1)
     return false;
   if (!(n & 1)) // even
-    return false;
+    return n == 2;
 
   // Test small primes "manually"
   lll ps[] = {2,  3,  5,  7,  11, 13, 17, 19, 23, 29, 31, 37, 41,
