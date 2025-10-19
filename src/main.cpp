@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
   start = std::chrono::high_resolution_clock::now();
 
   int c = 0;
-  int cmax = 1000;
+  int cmax = 100000;
   std::cout << "Testing " << c << " random numbers" << std::endl;
   int perc = 0;
   while (c < cmax) {
