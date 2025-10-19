@@ -12,5 +12,5 @@ public:
   bool isPrime(__int128 n) override;
 
 private:
-  MillerRabin millerRabin = MillerRabin(1);
+  MillerRabin millerRabin{1};
 };
