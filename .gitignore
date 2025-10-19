@@ -46,3 +46,6 @@ compile_flags.txt
 
 # build
 build
+
+# venv
+.venv
