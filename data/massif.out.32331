@@ -1,0 +1,648 @@
+desc: --stacks=yes
+cmd: ./PrimalityTesting 2
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=106123038
+mem_heap_B=73776
+mem_heap_extra_B=24
+mem_stacks_B=3256
+heap_tree=peak
+n3: 73776 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4913939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF00019A: ???
+        n0: 72704 0x1FFF0001AD: ???
+ n1: 1024 0x4B33BA3: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x4B42CDF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x4B41F5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+    n1: 1024 0x4B406D4: _IO_new_file_xsputn (fileops.c:1243)
+     n1: 1024 0x4B406D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+      n1: 1024 0x4B34FD6: fwrite (iofwrite.c:39)
+       n1: 1024 0x49A5B64: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+        n1: 1024 0x49A5EBA: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+         n0: 1024 0x10A878: main (in /home/martin/repos/Primality-testing/build/PrimalityTesting)
+ n0: 48 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=2
+#-----------
+time=1561908190
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1704
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=3211507413
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1592
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=4446339690
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1696
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=5766776504
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1696
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=6645893320
+mem_heap_B=73776
+mem_heap_extra_B=24
+mem_stacks_B=1136
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=8066004169
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1688
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=8925185474
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1696
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=10205752543
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1704
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=11577788660
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1704
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=13132763013
+mem_heap_B=73776
+mem_heap_extra_B=24
+mem_stacks_B=1352
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=14175929524
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1696
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=14892786443
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1688
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=16183128921
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1704
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=17903585501
+mem_heap_B=73776
+mem_heap_extra_B=24
+mem_stacks_B=1336
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=18907185871
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1688
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=20054156918
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1704
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=21553516300
+mem_heap_B=73776
+mem_heap_extra_B=24
+mem_stacks_B=1336
+heap_tree=detailed
+n3: 73776 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4913939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF00019A: ???
+        n0: 72704 0x1FFF0001AD: ???
+ n1: 1024 0x4B33BA3: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x4B42CDF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x4B41F5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+    n1: 1024 0x4B406D4: _IO_new_file_xsputn (fileops.c:1243)
+     n1: 1024 0x4B406D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+      n1: 1024 0x4B34FD6: fwrite (iofwrite.c:39)
+       n1: 1024 0x49A5B64: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+        n1: 1024 0x49A5EBA: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+         n0: 1024 0x10A878: main (in /home/martin/repos/Primality-testing/build/PrimalityTesting)
+ n0: 48 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=19
+#-----------
+time=22622761517
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1696
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=23959318028
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1704
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=25028563243
+mem_heap_B=73776
+mem_heap_extra_B=24
+mem_stacks_B=1000
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=25830497171
+mem_heap_B=73776
+mem_heap_extra_B=24
+mem_stacks_B=1016
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=26899742399
+mem_heap_B=73776
+mem_heap_extra_B=24
+mem_stacks_B=1352
+heap_tree=detailed
+n3: 73776 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4913939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF00019A: ???
+        n0: 72704 0x1FFF0001AD: ???
+ n1: 1024 0x4B33BA3: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x4B42CDF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x4B41F5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+    n1: 1024 0x4B406D4: _IO_new_file_xsputn (fileops.c:1243)
+     n1: 1024 0x4B406D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+      n1: 1024 0x4B34FD6: fwrite (iofwrite.c:39)
+       n1: 1024 0x49A5B64: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+        n1: 1024 0x49A5EBA: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+         n0: 1024 0x10A878: main (in /home/martin/repos/Primality-testing/build/PrimalityTesting)
+ n0: 48 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=24
+#-----------
+time=27701676307
+mem_heap_B=73776
+mem_heap_extra_B=24
+mem_stacks_B=1008
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=29038232817
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1696
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=30642100645
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1680
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=31978657185
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1696
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=33047902407
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1688
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=34710064631
+mem_heap_B=73776
+mem_heap_extra_B=24
+mem_stacks_B=1008
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=35570292954
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1600
+heap_tree=detailed
+n3: 73807 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4913939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF00019A: ???
+        n0: 72704 0x1FFF0001AD: ???
+ n1: 1024 0x4B33BA3: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x4B42CDF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x4B41F5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+    n1: 1024 0x4B406D4: _IO_new_file_xsputn (fileops.c:1243)
+     n1: 1024 0x4B406D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+      n1: 1024 0x4B34FD6: fwrite (iofwrite.c:39)
+       n1: 1024 0x49A5B64: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+        n1: 1024 0x49A5EBA: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+         n0: 1024 0x10A878: main (in /home/martin/repos/Primality-testing/build/PrimalityTesting)
+ n0: 79 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=31
+#-----------
+time=36860635405
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1688
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=37720863714
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1592
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=38581092040
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1704
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=39871434518
+mem_heap_B=73776
+mem_heap_extra_B=24
+mem_stacks_B=1336
+heap_tree=detailed
+n3: 73776 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4913939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF00019A: ???
+        n0: 72704 0x1FFF0001AD: ???
+ n1: 1024 0x4B33BA3: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x4B42CDF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x4B41F5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+    n1: 1024 0x4B406D4: _IO_new_file_xsputn (fileops.c:1243)
+     n1: 1024 0x4B406D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+      n1: 1024 0x4B34FD6: fwrite (iofwrite.c:39)
+       n1: 1024 0x49A5B64: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+        n1: 1024 0x49A5EBA: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+         n0: 1024 0x10A878: main (in /home/martin/repos/Primality-testing/build/PrimalityTesting)
+ n0: 48 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=35
+#-----------
+time=40731662845
+mem_heap_B=73776
+mem_heap_extra_B=24
+mem_stacks_B=1352
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=41591891151
+mem_heap_B=73776
+mem_heap_extra_B=24
+mem_stacks_B=1496
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=42882233615
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1696
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=43742461931
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1704
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=44602690261
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1696
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=45893032746
+mem_heap_B=73776
+mem_heap_extra_B=24
+mem_stacks_B=1344
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=46753261062
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1680
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=48043603528
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1696
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=48903831842
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1696
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=49764060135
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1600
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=50624288447
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1696
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=51914630926
+mem_heap_B=73776
+mem_heap_extra_B=24
+mem_stacks_B=1008
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=53204973378
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1704
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=54065201674
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1680
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=55355544148
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1696
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=56072401071
+mem_heap_B=73776
+mem_heap_extra_B=24
+mem_stacks_B=1568
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=56789257997
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1752
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=57506114934
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1704
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=58222971854
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1688
+heap_tree=detailed
+n3: 73807 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4913939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF00019A: ???
+        n0: 72704 0x1FFF0001AD: ???
+ n1: 1024 0x4B33BA3: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x4B42CDF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x4B41F5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+    n1: 1024 0x4B406D4: _IO_new_file_xsputn (fileops.c:1243)
+     n1: 1024 0x4B406D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+      n1: 1024 0x4B34FD6: fwrite (iofwrite.c:39)
+       n1: 1024 0x49A5B64: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+        n1: 1024 0x49A5EBA: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+         n0: 1024 0x10A878: main (in /home/martin/repos/Primality-testing/build/PrimalityTesting)
+ n0: 79 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=54
+#-----------
+time=58939828784
+mem_heap_B=73776
+mem_heap_extra_B=24
+mem_stacks_B=1008
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=59656685718
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1704
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=60373542649
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1704
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=61090399607
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1600
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=61807256542
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1680
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=62524113479
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1696
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=63240970401
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1688
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=63957827340
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1696
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=64674684267
+mem_heap_B=73807
+mem_heap_extra_B=33
+mem_stacks_B=1696
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=65391541190
+mem_heap_B=73776
+mem_heap_extra_B=24
+mem_stacks_B=1008
+heap_tree=detailed
+n3: 73776 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4913939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF00019A: ???
+        n0: 72704 0x1FFF0001AD: ???
+ n1: 1024 0x4B33BA3: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x4B42CDF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x4B41F5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+    n1: 1024 0x4B406D4: _IO_new_file_xsputn (fileops.c:1243)
+     n1: 1024 0x4B406D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+      n1: 1024 0x4B34FD6: fwrite (iofwrite.c:39)
+       n1: 1024 0x49A5B64: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+        n1: 1024 0x49A5EBA: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+         n0: 1024 0x10A878: main (in /home/martin/repos/Primality-testing/build/PrimalityTesting)
+ n0: 48 in 2 places, all below massif's threshold (1.00%)

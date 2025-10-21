@@ -6,8 +6,8 @@ project(PrimalityTesting)
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-# set(CMAKE_CXX_FLAGS_DEBUG "-g")
-set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+#set(CMAKE_BUILD_TYPE Release)
 
 # Add source files
 set(SOURCES

@@ -52,8 +52,8 @@ int main(int argc, char *argv[]) {
   }
 
   const char *maxIntStr =
-      "34000000000000000"; // NOTE:Not the actual __128 limit, rather the limit
-                           // of how big ints we want to test
+      "20000000"; // NOTE:Not the actual __128 limit, rather the limit
+                  // of how big ints we want to test
   lll maxInt = strToInt(maxIntStr);
   std::cout << maxInt << std::endl;
 
@@ -66,6 +66,7 @@ int main(int argc, char *argv[]) {
     // std::cout << "Is " << i << " a prime? " << pt->isPrime(i) << std::endl;
   }
 
+  end = std::chrono::high_resolution_clock::now();
   std::chrono::duration<double> elapsed = end - start;
   std::cout << "Time ellapsed: " << elapsed.count() << "s" << std::endl;
   std::cout << "Warning: Code exited before being killed, consider increasing "
