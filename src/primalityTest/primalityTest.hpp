@@ -1,5 +1,7 @@
 #pragma once
 
+#include "helpers.hpp"
+
 // An abstract parent class for all primality tests
 
 class PrimalityTest {
@@ -8,5 +10,5 @@ public:
   PrimalityTest() = default;
   virtual ~PrimalityTest() = default;
 
-  virtual bool isPrime(__int128 n) = 0;
+  virtual bool isPrime(BigInt) = 0;
 };

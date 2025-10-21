@@ -4,14 +4,14 @@
 #include <string>
 
 #include "bailliePsw/bailliePsw.hpp"
-#include "millerRabin/millerRabin.hpp"
-#include "primalityTest/primalityTest.hpp"
+//#include "millerRabin/millerRabin.hpp"
+// #include "primalityTest/primalityTest.hpp"
 #include "trialDivision/trial.hpp"
 
-#include "helpers.hpp"
+// #include "helpers.hpp"
 
 // Global variables for efficient (async) info. logging
-lll i = 0;
+BigInt i = 0;
 std::chrono::time_point<std::chrono::high_resolution_clock> start, end;
 PrimalityTest *pt = nullptr;
 
@@ -52,30 +52,33 @@ int main(int argc, char *argv[]) {
   }
 
   const char *maxIntStr =
-      "20000000"; // NOTE:Not the actual __128 limit, rather the limit
-                           // of how big ints we want to test
-  lll maxInt = strToInt(maxIntStr);
+      "46116860184273879040000000000000000000000000000000000000000000"; // NOTE:Not the actual __128 limit, rather the
+                             // limit of how big ints we want to test
+  BigInt maxInt;
+  maxInt = "46116860184273879040000000000000000000000000000000000000000000";
   std::cout << maxInt << std::endl;
 
   // const char *aStr = "100000000";
   // const char *aStr = "200";
 
   int reps = 10;
-  int wsize = 10000;   // Every time measurements includes `wsize`-many ints
-  
+  // int wsize =
+  // 1000000000000; // Every time measurements includes `wsize`-many ints
+
+  const char *wsizeStr = "1";
+  BigInt wsize = strToInt(wsizeStr);
   start = std::chrono::high_resolution_clock::now();
-  for (i = 0; i < maxInt; ++i) {
+  for (i = 0; i < maxInt; i += wsize) { // Sped-up version
+    wsize *= 2;
     for (int r = 0; r < reps; ++r) {
       pt->isPrime(i);
     }
 
-    if (i % wsize == 0) {
-      end = std::chrono::high_resolution_clock::now();
-      std::chrono::duration<double> elapsed = end - start;
-      double tavg = elapsed.count() / reps;
-      std::cout << "Time elapsed: " << tavg  << "s" << std::endl;
-      start = std::chrono::high_resolution_clock::now();
-    }
+    end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed = end - start;
+    double tavg = elapsed.count() / reps;
+    std::cout << "Time elapsed: " << tavg << "s" << std::endl;
+    start = std::chrono::high_resolution_clock::now();
   }
 
   delete pt;

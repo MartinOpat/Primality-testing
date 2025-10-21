@@ -1,6 +1,7 @@
 #pragma once
 
 #include "primalityTest/primalityTest.hpp"
+// #include "helpers.hpp"
 
 // TODO: Link stuff using cmake
 
@@ -9,5 +10,5 @@ public:
   TrialDivision() = default;
   ~TrialDivision() = default;
 
-  bool isPrime(__int128 n) override;
+  bool isPrime(BigInt n) override;
 };

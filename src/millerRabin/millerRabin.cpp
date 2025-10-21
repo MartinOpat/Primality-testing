@@ -1,26 +1,26 @@
 
 #include "millerRabin.hpp"
-#include "helpers.hpp"
+//#include "helpers.hpp"
 #include <cstdlib>
 
-bool MillerRabin::isPrime(__int128 n) {
+bool MillerRabin::isPrime(BigInt n) {
   if (n <= 1)
     return false;
 
   if (n == 2 || n == 3)
     return true;
 
-  if (!(n & 1))
+  if (n%2 == 0)
     return false;
 
-  lll r = 0, s = n - 1;
-  lll a, x;
-  while (!(s & 1)) {
+  BigInt r = 0, s = n - 1;
+  BigInt a, x;
+  while (s%2 == 0) {
     ++r;
     s /= 2;
   }
 
-  for (lll i = 0; i < _k; ++i) {
+  for (BigInt i = 0; i < _k; ++i) {
     a = bounded_rand(2, n - 1);
     x = mod_pow(a, s, n);
 

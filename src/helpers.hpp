@@ -2,6 +2,7 @@
 
 #include <random>
 #include <iostream>
+#include "bigint.hpp"
 
 using lll = __int128;
 
@@ -12,19 +13,19 @@ inline __int128 strToInt(const char *num) {
   return a;
 }
 
-inline std::ostream &operator<<(std::ostream &o, __int128 n) {
-  auto t = n < 0 ? -n : n;
-  char b[128], *d = std::end(b);
-  do
-    *--d = '0' + t % 10, t /= 10;
-  while (t);
-  if (n < 0)
-    *--d = '-';
-  o.rdbuf()->sputn(d, std::end(b) - d);
-  return o;
-}
+// inline std::ostream &operator<<(std::ostream &o, __int128 n) {
+//   auto t = n < 0 ? -n : n;
+//   char b[128], *d = std::end(b);
+//   do
+//     *--d = '0' + t % 10, t /= 10;
+//   while (t);
+//   if (n < 0)
+//     *--d = '-';
+//   o.rdbuf()->sputn(d, std::end(b) - d);
+//   return o;
+// }
 
-inline lll mod_pow(lll base, lll exp, lll mod) {
+inline BigInt mod_pow(BigInt base, BigInt exp, BigInt mod) {
   if (mod == 1)
     return 0;
   if (exp == 0)
@@ -32,12 +33,12 @@ inline lll mod_pow(lll base, lll exp, lll mod) {
   if (exp == 1)
     return base;
 
-  lll res = 1;
+  BigInt res = 1;
   base %= mod;
-  while (exp) {
+  while (exp==0) {
     if (exp % 2 == 1)
       res = (res * base) % mod;
-    exp >>= 1;
+    exp /= 2;
     base = (base * base) % mod;
   }
 
@@ -46,7 +47,7 @@ inline lll mod_pow(lll base, lll exp, lll mod) {
 
 
 // Upper is exclusive, lower is inclusive. TODO: Move to `helpers.hpp`
-inline lll bounded_rand(lll lower, lll upper) {
+inline BigInt bounded_rand(BigInt lower, BigInt upper) {
   return std::rand() % (upper - lower) + lower;
 }
 
@@ -58,7 +59,7 @@ inline lll bounded_rand(lll lower, lll upper) {
 // }
 
 // // [lower, upper)
-// inline lll bounded_rand(lll lower, lll upper) {
+// inline BigInt bounded_rand(BigInt lower, BigInt upper) {
 //   if (!(upper > lower)) return lower; // or assert
 //   __uint128_t span = static_cast<__uint128_t>(upper - lower);
 
@@ -70,6 +71,6 @@ inline lll bounded_rand(lll lower, lll upper) {
 //     r = rand_u128();
 //   } while (r >= limit);
 
-//   return static_cast<lll>(static_cast<__int128>(lower) +
+//   return static_cast<BigInt>(static_cast<__int128>(lower) +
 //                           static_cast<__int128>(r % span));
 // }
