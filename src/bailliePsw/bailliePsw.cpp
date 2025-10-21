@@ -17,23 +17,32 @@ static inline BigInt norm_mod(BigInt x, BigInt m) {
 // (a + b) mod m
 static inline BigInt addmod(BigInt a, BigInt b, BigInt m) {
   BigInt s = a + b;
-  if (s >= m) s -= m;
+  if (s >= m)
+    s -= m;
   return s;
 }
 
 // (a * b) mod m
 static inline BigInt mulmod(BigInt a, BigInt b, BigInt m) {
-  a %= m; if (a < 0) a += m;
-  b %= m; if (b < 0) b += m;
+  a %= m;
+  if (a < 0)
+    a += m;
+  b %= m;
+  if (b < 0)
+    b += m;
   BigInt t = a * b;
   t %= m;
-  if (t < 0) t += m;
+  if (t < 0)
+    t += m;
   return t;
 }
 
 BigInt modTwoInv(BigInt x, BigInt m) {
-  x %= m; if (x < 0) x += m;
-  if (x % 2 == 2) x += m;
+  x %= m;
+  if (x < 0)
+    x += m;
+  if (x % 2 == 1)
+    x += m;
   return x / 2;
 }
 
@@ -42,8 +51,8 @@ std::pair<BigInt, BigInt> uv(BigInt k, BigInt n, BigInt p, BigInt d) {
 
   // build binary of k without bitset
   std::string bin;
-  for (BigInt t =k; t != 0; t /= 2)
-    bin.push_back(t%2 != 0 ? '1' : '0');
+  for (BigInt t = k; t != 0; t /= 2)
+    bin.push_back(t % 2 != 0 ? '1' : '0');
   std::reverse(bin.begin(), bin.end());
 
   bool trail = true;
@@ -150,12 +159,12 @@ std::pair<BigInt, BigInt> getVal(BigInt n) {
 bool BailliePSW::isPrime(BigInt n) {
   if (n <= 1)
     return false;
-  if (n%2 == 0) // even
+  if (n % 2 == 0) // even
     return n == 2;
 
   // Test small primes "manually"
   BigInt ps[] = {2,  3,  5,  7,  11, 13, 17, 19, 23, 29, 31, 37, 41,
-              43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101};
+                 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101};
 
   for (auto &p : ps) {
     if (n % p == 0)
