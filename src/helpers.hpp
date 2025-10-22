@@ -35,7 +35,7 @@ inline BigInt mod_pow(BigInt base, BigInt exp, BigInt mod) {
 
   BigInt res = 1;
   base %= mod;
-  while (exp==0) {
+  while (exp!=0) {
     if (exp % 2 == 1)
       res = (res * base) % mod;
     exp /= 2;
