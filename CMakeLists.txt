@@ -4,6 +4,9 @@ project(PrimalityTesting)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_BUILD_TYPE Release)
 
+# SET(CMAKE_C_FLAGS_DEBUG "-O0")
+# set(SET(CMAKE_CXX_FLAGS_DEBUG "-O0"))
+
 add_executable(PrimalityTesting
     src/main.cpp
     src/trialDivision/trial.cpp
