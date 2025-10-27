@@ -20,9 +20,9 @@ while [[ -f $LOGFILE ]]; do
 done
 echo "Logging to $LOGFILE"
 
-reps=1
+reps=10
 for i in "${tests[@]}"; do
   for j in $(seq 1 $reps); do
-    ./PrimalityTesting $i >> $LOGFILE
+    ./PrimalityTesting $i >>$LOGFILE
   done
 done

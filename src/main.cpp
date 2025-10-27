@@ -4,8 +4,9 @@
 #include <string>
 
 #include "bailliePsw/bailliePsw.hpp"
-//#include "millerRabin/millerRabin.hpp"
-// #include "primalityTest/primalityTest.hpp"
+// #include "millerRabin/millerRabin.hpp"
+//  #include "primalityTest/primalityTest.hpp"
+#include "helpers.hpp"
 #include "trialDivision/trial.hpp"
 
 // #include "helpers.hpp"
@@ -51,11 +52,9 @@ int main(int argc, char *argv[]) {
     return 0;
   }
 
-  const char *maxIntStr =
-      "46116860184273879040000000000000000000000000000000000000000000"; // NOTE:Not the actual __128 limit, rather the
-                             // limit of how big ints we want to test
   BigInt maxInt;
-  maxInt = "46116860184273879040000000000000000000000000000000000000000000";
+  maxInt = "2037035976334486086268445688409378161051468393665936250636140449354"
+           "381299763336706183397376";
   std::cout << maxInt << std::endl;
 
   // const char *aStr = "100000000";
@@ -65,8 +64,8 @@ int main(int argc, char *argv[]) {
   // int wsize =
   // 1000000000000; // Every time measurements includes `wsize`-many ints
 
-  const char *wsizeStr = "1";
-  BigInt wsize = strToInt(wsizeStr);
+  BigInt wsize;
+  wsize = "1";
   start = std::chrono::high_resolution_clock::now();
   for (i = 0; i < maxInt; i += wsize) { // Sped-up version
     wsize *= 2;
