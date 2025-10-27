@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.16)
+
 project(PrimalityTesting)
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_BUILD_TYPE Release)
+
 add_executable(PrimalityTesting
     src/main.cpp
     src/trialDivision/trial.cpp
