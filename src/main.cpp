@@ -55,7 +55,7 @@ int main(int argc, char *argv[]) {
   BigInt maxInt;
   maxInt = "2037035976334486086268445688409378161051468393665936250636140449354"
            "381299763336706183397376";
-  std::cout << maxInt << std::endl;
+  // std::cout << maxInt << std::endl;
 
   // const char *aStr = "100000000";
   // const char *aStr = "200";
@@ -64,21 +64,35 @@ int main(int argc, char *argv[]) {
   // int wsize =
   // 1000000000000; // Every time measurements includes `wsize`-many ints
 
-  BigInt wsize;
-  wsize = "1";
-  start = std::chrono::high_resolution_clock::now();
-  for (i = 0; i < maxInt; i += wsize) { // Sped-up version
-    wsize *= 2;
-    for (int r = 0; r < reps; ++r) {
-      pt->isPrime(i);
-    }
+  // BigInt wsize;
+  // wsize = "1";
+  // start = std::chrono::high_resolution_clock::now();
+  // for (i = 0; i < maxInt; i += wsize) { // Sped-up version
+  //   wsize *= 2;
+  //   for (int r = 0; r < reps; ++r) {
+  //     pt->isPrime(i);
+  //   }
+  //
+  //   end = std::chrono::high_resolution_clock::now();
+  //   std::chrono::duration<double> elapsed = end - start;
+  //   double tavg = elapsed.count() / reps;
+  //   std::cout << "Time elapsed: " << tavg << "s" << std::endl;
+  //   start = std::chrono::high_resolution_clock::now();
+  // }
 
-    end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> elapsed = end - start;
-    double tavg = elapsed.count() / reps;
-    std::cout << "Time elapsed: " << tavg << "s" << std::endl;
-    start = std::chrono::high_resolution_clock::now();
-  }
+  BigInt p;
+  std::string num = argv[2];
+  p = num;
+
+  std::cout << "Testing: " << p << std::endl;
+  start = std::chrono::high_resolution_clock::now();
+  std::cout << "Is prime? " << pt->isPrime(p) << std::endl;
+  end = std::chrono::high_resolution_clock::now();
+
+  std::chrono::duration<double> elapsed = end - start;
+  double tavg = elapsed.count();
+  std::cout << "Time elapsed: " << tavg << "s" << std::endl;
+  start = std::chrono::high_resolution_clock::now();
 
   delete pt;
 
